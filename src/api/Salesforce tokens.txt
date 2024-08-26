@@ -1,0 +1,9 @@
+Client ID(Consumer Key) - 3MVG9GCMQoQ6rpzS_IGTdkMe11fmlVDXxFCGSAAn_1SqlkpgBHcP4s.ValVEDDI7BOek6ei2DqXZRbB1y9ATQ
+
+Client Secret(Consumer Secret) - 89C80B77D71052BEA5B557A1AC5EC586A323367460E96CDEA459A2783A25CB6A
+
+Security Token - dHCToVXfVv9zoIlrQd3NF2lzl
+
+===================================
+
+Access Token URL for Salesforce - https://login.salesforce.com/services/oauth2/token
