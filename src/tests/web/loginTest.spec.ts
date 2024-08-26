@@ -11,16 +11,10 @@ test.describe("Salesforce Login Functionality", () => {
     homepage = new HomePage(page);
 
     await test.step("Login with Credentials and validate service Title", async () => {
-      await loginpage.login(process.env.userid, process.env.password);
+      await loginpage.login(process.env.userid!, process.env.password!);
 
       const titleVisibility = await homepage.serviceTitleVisibility();
       expect(titleVisibility).toBeTruthy();
     });
-  });
-
-  test("demo on .env", async ({ page }) => {
-    console.log(process.env.ENV);
-    console.log(process.env.userid);
-    console.log(process.env.password);
   });
 });
