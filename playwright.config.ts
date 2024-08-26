@@ -1,5 +1,5 @@
 import { defineConfig, devices } from "@playwright/test";
-import { on } from "events";
+import dotenv from "dotenv";
 
 /**
  * Read environment variables from file.
@@ -7,6 +7,9 @@ import { on } from "events";
  */
 // import dotenv from 'dotenv';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
+
+//Use $env:ENV="userCredentials" to change to respective Environment
+dotenv.config({ path: `./src//config//.env.${process.env.ENV}` });
 
 /**
  * See https://playwright.dev/docs/test-configuration.
