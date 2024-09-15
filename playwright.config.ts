@@ -9,7 +9,12 @@ import dotenv from "dotenv";
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 //Use $env:ENV="userCredentials" to change to respective Environment
-dotenv.config({ path: `./src//config//.env.${process.env.ENV}` });
+//Command to check current env -> echo %$env:ENV%
+if (!process.env.ENV || process.env.ENV === "userCredentials") {
+  dotenv.config({ path: `./src//config//.env.userCredentials` });
+} else {
+  dotenv.config({ path: `./src//config//.env.${process.env.ENV}` });
+}
 
 /**
  * See https://playwright.dev/docs/test-configuration.

@@ -25,3 +25,12 @@ git rebase origin/main
 git checkout <feature_branch>
 git merge main
 git rebase main
+
+
+
+========================
+
+To use Encripted Credentials we have to install below js packages
+
+npm install crypto-js
+npm install --save-dev @types/crypto-js
