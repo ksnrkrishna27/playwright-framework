@@ -8,12 +8,16 @@ import dotenv from "dotenv";
 // import dotenv from 'dotenv';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
 
-//Use $env:ENV="userCredentials" to change to respective Environment
-//Command to check current env -> echo %$env:ENV%
-if (!process.env.ENV || process.env.ENV === "userCredentials") {
+//Note : Use cmd for below commands
+//Use set ENV="userCredentials" to change to respective Environment
+//Command to check current env -> echo %ENV%
+if (
+  (!process.env.ENV || process.env.ENV === "userCredentials") &&
+  process.env.SALT
+) {
   dotenv.config({ path: `./src//config//.env.userCredentials` });
-} else {
-  dotenv.config({ path: `./src//config//.env.${process.env.ENV}` });
+} else if (!process.env.SALT) {
+  dotenv.config({ path: `./src//config//.env.defaultSALTUser` });
 }
 
 /**
