@@ -1,13 +1,18 @@
 import { Page } from "@playwright/test";
 import { pageLocators } from "./locators";
+import { decryption } from "../utils/CryptojsUtil";
 
 export default class LoginPage {
   constructor(private page: Page) {}
 
-  async login(username: string, password: string) {
+  async login() {
     await this.page.goto("/");
-    await this.page.locator(pageLocators.usernameInput_loc).fill(username);
-    await this.page.locator(pageLocators.passwordInput_loc).fill(password);
+    await this.page
+      .locator(pageLocators.usernameInput_loc)
+      .fill(decryption(process.env.userid!));
+    await this.page
+      .locator(pageLocators.passwordInput_loc)
+      .fill(decryption(process.env.password!));
     await this.page
       .locator(pageLocators.loginButton_loc)
       .click()
