@@ -3,7 +3,10 @@ import { pageLocators } from "./locators";
 import { decryption } from "../utils/CryptojsUtil";
 
 export default class LoginPage {
-  constructor(private page: Page) {}
+  page: Page;
+  constructor(page: Page) {
+    this.page = page;
+  }
 
   async login() {
     await this.page.goto("/");
