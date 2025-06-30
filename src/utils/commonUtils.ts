@@ -1,11 +1,15 @@
 import { Page } from "@playwright/test";
 
-export interface commonUtils {
+export default class CommonUtils {
   page: Page;
-}
 
-async function verifyElementVisibility(element: string) {
-  await this.page.locator(element).waitFor({ state: "attached" });
-  const visibility = await this.page.locator(element).isVisible();
-  return visibility;
+  constructor(page: Page) {
+    this.page = page;
+  }
+
+  async verifyElementVisibility(element: string) {
+    await this.page.locator(element).waitFor({ state: "attached" });
+    const visibility = await this.page.locator(element).isVisible();
+    return visibility;
+  }
 }

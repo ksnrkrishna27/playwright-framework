@@ -1,11 +1,13 @@
 import { Page } from "@playwright/test";
 import { pageLocators } from "./locators";
-import commonUtils from "../utils/commonUtils";
+import CommonUtils from "../utils/CommonUtils";
 
-export default class HomePage implements commonUtils {
+export default class HomePage {
   page: Page;
+  commonUtils: CommonUtils;
   constructor(page: Page) {
     this.page = page;
+    this.commonUtils = new CommonUtils(page);
   }
 
   async serviceTitleVisibility() {
@@ -13,7 +15,7 @@ export default class HomePage implements commonUtils {
       .locator(pageLocators.serviceTitle_loc)
       .waitFor({ state: "attached" });
 
-    const titleVisible = await this.verifyElementVisibility(
+    const titleVisible = await this.commonUtils.verifyElementVisibility(
       pageLocators.serviceTitle_loc
     );
     console.log(`Service Title Visibility : ${titleVisible}`);
